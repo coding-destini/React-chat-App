@@ -6,7 +6,7 @@ const LogIn = () => {
     <>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <section className="w-full max-w-md">
-        <div className="bg-white rounded-lg shadow p-6 border border-black">
+        <div className="bg-white rounded-lg shadow-lg p-6">
           <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900">
             <img className="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
             BizChat

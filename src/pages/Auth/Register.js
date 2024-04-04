@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 import './auth.css'
 
 const Register = () => {
+
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+    console.log(e.target[0].value);
+  }
+
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <section className="w-full max-w-md">
-          <div className="bg-white rounded-lg shadow p-6 border border-black">
+          <div className="bg-white rounded-lg p-6 shadow-lg">
             <a
               href="#"
               className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
@@ -22,7 +28,7 @@ const Register = () => {
             <h1 className="text-xl font-bold leading-tight text-gray-900 mb-6">
               Create your account
             </h1>
-            <form className="space-y-4" action="#">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               {/* ---------- Display Name --------------- */}
               <div>
                 <label
@@ -119,7 +125,7 @@ const Register = () => {
 
               <button
                 type="submit"
-                className="w-full bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white"
+                className="w-full shadow bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white "
               >
                 Sign in
               </button>
