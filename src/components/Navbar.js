@@ -1,6 +1,11 @@
-import React from 'react'
+import { signOut } from 'firebase/auth'
+import React, { useContext } from 'react'
+import { auth } from '../firebase'
+import { AuthContext } from '../context/AuthContext'
 
 const Search = () => {
+  const {currentUser} = useContext(AuthContext);
+
   return (
     <div><div className="header">
     <div className="logo">
@@ -16,6 +21,13 @@ const Search = () => {
         />
       </svg>
     </div>
+    
+    <button
+                type="submit" onClick={()=>signOut(auth)}
+                className="w-fit mx-2  shadow bg-gradient-to-r from-blue-500  to-indigo-500 font-medium rounded-lg text-xs px-2 py-2.5 text-center text-white "
+              >
+                Log out
+              </button>
     <div className="search-bar">
       <input type="text" placeholder="Search..." />
     </div>
@@ -48,7 +60,7 @@ const Search = () => {
       </div>
       <img
         className="user-profile"
-        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png"
+        src={currentUser.photoURL}
         alt=""
       />
     </div>
