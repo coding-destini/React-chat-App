@@ -2,8 +2,9 @@ import { signOut } from 'firebase/auth'
 import React, { useContext } from 'react'
 import { auth } from '../firebase'
 import { AuthContext } from '../context/AuthContext'
+import Search from './Search'
 
-const Search = () => {
+const Navbar = () => {
   const {currentUser} = useContext(AuthContext);
 
   return (
@@ -23,14 +24,13 @@ const Search = () => {
     </div>
     
     <button
-                type="submit" onClick={()=>signOut(auth)}
-                className="w-fit mx-2  shadow bg-gradient-to-r from-blue-500  to-indigo-500 font-medium rounded-lg text-xs px-2 py-2.5 text-center text-white "
-              >
+     type="submit" onClick={()=>signOut(auth)}
+      className="w-fit mx-2  shadow bg-gradient-to-r from-blue-500  to-indigo-500 font-medium rounded-lg text-xs px-2 py-2.5 text-center text-white "
+    >
                 Log out
               </button>
-    <div className="search-bar">
-      <input type="text" placeholder="Search..." />
-    </div>
+   <Search/>
+
     <div className="user-settings">
       <div className="dark-light">
         <svg
@@ -69,4 +69,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default Navbar

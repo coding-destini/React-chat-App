@@ -5,7 +5,7 @@ import { auth, storage, db } from "../../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import * as Yup from "yup";
+
 
 const Register = () => {
   const [loading, setLoading] = useState(false);

@@ -6,16 +6,21 @@ import { auth } from '../../firebase';
 const LogIn = () => {
 
   const [error, seterror] = useState(false);
+  const [loading,setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
 
     //------- Firebase auth
     try {
+      setLoading(true)
       await signInWithEmailAndPassword(auth,email,password);
+      setLoading(false)
       navigate('/');
     } catch (err) {
       const errorMessage = err.message;
@@ -71,11 +76,18 @@ const LogIn = () => {
               </div>
               <a href="#" className="text-sm font-medium text-primary-600 hover:underline">Forgot password?</a>
             </div>
+
+            {loading && ( // Conditional rendering of loader
+                <div className="fixed top-0 left-0 w-full h-full bg-blue-200 opacity-50 flex justify-center items-center z-50">
+                  <div className="border-t-4 border-gray-500 rounded-full w-12 h-12 animate-spin"></div>
+                </div>
+              )}
             <button
                 type="submit"
+                disabled={loading}
                 className="w-full shadow bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white "
               >
-                Sign in
+                {loading?"Signing in...":"Sign in"}
               </button>
             <p className="text-sm font-light text-gray-500">Don’t have an account yet? 
             <Link to="/signup">
