@@ -5,6 +5,7 @@ import Register from './pages/Auth/Register'
 import Home from './components/Home'
 import { AuthContext } from './context/AuthContext'
 
+
 const App = () => {
   
   const {currentUser} = useContext(AuthContext);

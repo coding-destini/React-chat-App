@@ -1,8 +1,13 @@
 import React from 'react'
+import SearchResult from '../Search/SearchResult'
 
 const Chats = () => {
   return (
     <div>
+      {/* Search Result :) */}
+      <div className='search-result'>
+        <SearchResult/>
+      </div>
         <div className="conversation-area">
   <div className="msg online">
     <img

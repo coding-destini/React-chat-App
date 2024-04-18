@@ -1,8 +1,9 @@
 import { signOut } from 'firebase/auth'
 import React, { useContext } from 'react'
-import { auth } from '../firebase'
-import { AuthContext } from '../context/AuthContext'
-import Search from './Search'
+import { auth } from '../../firebase'
+import { AuthContext } from '../../context/AuthContext'
+import Search from '../Search/Search'
+import SearchResult from '../Search/SearchResult'
 
 const Navbar = () => {
   const {currentUser} = useContext(AuthContext);
@@ -29,7 +30,8 @@ const Navbar = () => {
     >
                 Log out
               </button>
-   <Search/>
+  <Search/>
+  
 
     <div className="user-settings">
       <div className="dark-light">
@@ -64,7 +66,9 @@ const Navbar = () => {
         alt=""
       />
     </div>
+    
   </div>
+ 
   </div>
   )
 }

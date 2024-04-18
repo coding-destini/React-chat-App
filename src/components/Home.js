@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from './Navbar'
-import Chats from './Chats'
-import Chat from './Chat'
-import Profile from './Profile'
+import Navbar from './Navbar/Navbar'
+import Chats from './ChatList/Chats'
+import Chat from './Chat/Chat'
+import Profile from './Profile/Profile'
 
 const Home = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import Input from "./Input";
-import Message from "./Message";
+import Input from "../Message/Input";
+import Message from "../Message/Message";
 
 const Chat = () => {
   return (
