@@ -12,7 +12,7 @@ const SearchResult = () => {
   return (
     <>
       {user ? (
-        <div className="msg online">
+        <div className="msg online animate__animated animate__fadeInUp">
           <img
             className="msg-profile"
             src={user.photoURL}
