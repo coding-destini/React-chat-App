@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Register from './pages/Auth/Register'
 import Home from './components/Home'
 import { AuthContext } from './context/AuthContext'
-
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   
@@ -20,6 +20,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+    <Toaster/>
     <Routes>
       <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>} />
       <Route path="/signin" element={<LogIn/>} />

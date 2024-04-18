@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
+
 const SearchResult = () => {
   const [user,setUser] = useState({});
   const searchedUser = useSelector(state => state.user.searchedUser);
@@ -27,7 +28,7 @@ const SearchResult = () => {
           </div>
         </div>
       ) : (
-        <div>No user found</div>
+        ''
       )}
     </>
   );

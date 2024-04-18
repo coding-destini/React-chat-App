@@ -3,6 +3,8 @@ import { db } from "../../firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { setSearchedUser } from "../../features/user/userSlice";
+import toast from 'react-hot-toast'
+
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -13,11 +15,18 @@ const Search = () => {
       collection(db, "users"),
       where("displayName", "==", username)
     );
+    
     try {
       const querySnapshot = await getDocs(q);
+      //If no user found
+      if (querySnapshot.empty) {
+        toast.error("No user found",{ duration: 2000, position:'top-right'});
+        return;
+      }
       querySnapshot.forEach((doc) => {
         const userData = doc.data();
         dispatch(setSearchedUser(userData));
+        toast.success("User Founded",{ duration: 2000, position:'top-right'});
       });
     } catch (error) {
       console.error(error);
