@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { db } from "../../firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useDispatch } from "react-redux";
@@ -9,6 +10,7 @@ import toast from 'react-hot-toast'
 const Search = () => {
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
+  const searchedUser = useSelector(state => state.user.searchedUser);
 
   const handleSearch = async () => {
     const q = query(
@@ -55,6 +57,7 @@ const Search = () => {
           placeholder="Search..."
           onKeyDown={handleKey}
           onChange={handleChange}
+          value={username}
         />
       </div>
     </>
